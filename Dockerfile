@@ -13,7 +13,8 @@ RUN go build -o http_server http_server.go
 
 # 运行镜像
 FROM scratch as prod
-COPY --from=build /http_server_app/http_server /
+COPY --from=buildr /http_server_app/http_server /
+EXPOSE 9090
 CMD ["/http_server"]
 
 #  sudo docker build -t kx_http_server .
